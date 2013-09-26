@@ -16,13 +16,9 @@ h3. The automatic installer… do you trust me?
 
 You can install this via the command-line with either @curl@ or @wget@.
 
-h4. via @curl@:
+@curl -L https://github.com/userzc/oh-my-zsh/raw/master/tools/install.sh | sh@
 
-@curl -L http://install.ohmyz.sh | sh@
-
-h4. via @wget@:
-
-@wget --no-check-certificate http://install.ohmyz.sh -O - | sh@
+@wget --no-check-certificate https://github.com/userzc/oh-my-zsh/raw/master/tools/install.sh -O - | sh@
 
 h4. *Optionally*, change the install directory:
 
@@ -36,7 +32,8 @@ h3. The manual way
 
 1. Clone the repository:
 
-@git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh@
+  @git clone git://github.com/userzc/oh-my-zsh.git ~/.oh-my-zsh@
+
 
 2. *Optionally*, backup your existing @~/.zshrc@ file:
 
