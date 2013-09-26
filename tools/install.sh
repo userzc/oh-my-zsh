@@ -9,10 +9,22 @@ if [ -d "$ZSH" ]; then
   exit
 fi
 
+############################
+# ORIGINAL CLONING SNIPPET #
+############################
+# echo "\033[0;34mCloning Oh My Zsh...\033[0m"
+# hash git >/dev/null && /usr/bin/env git clone https://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh || {
+#   echo "git not installed"
+#   exit
+# }
+
 echo "\033[0;34mCloning Oh My Zsh...\033[0m"
-hash git >/dev/null 2>&1 && env git clone https://github.com/robbyrussell/oh-my-zsh.git $ZSH || {
-  echo "git not installed"
-  exit
+hash git >/dev/null && /usr/bin/env git clone https://github.com/userzc/oh-my-zsh.git ~/.oh-my-zsh  && {
+    cd  ~/.oh-my-zsh
+    git remote add upstream https://github.com/robbyrussell/oh-my-zsh.git
+} || {
+    echo "git not installed"
+    exit
 }
 
 echo "\033[0;34mLooking for an existing zsh config...\033[0m"

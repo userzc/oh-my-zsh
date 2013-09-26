@@ -1,8 +1,8 @@
 !https://s3.amazonaws.com/ohmyzsh/oh-my-zsh-logo.png!
 
-@oh-my-zsh@ is an open source, community-driven framework for managing your "Zsh":http://www.zsh.org/ configuration.
+h1. "Personal Fork from the oh-my-zsh project."
 
-It comes bundled with a ton of helpful functions, helpers, plugins, themes, and a few things that make you shout…
+oh-my-zsh is an open source, community-driven framework for managing your ZSH configuration. It comes bundled with a ton of helpful functions, helpers, plugins, themes, and few things that make you shout...
 
 bq. "OH MY ZSHELL!"
 
