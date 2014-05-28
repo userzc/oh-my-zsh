@@ -1,7 +1,7 @@
 PROMPT='%{$fg_bold[blue]%}[ %{$FG[202]%}%n%{$fg[black]%}\
 @%{$fg[magenta]%}%m%{$fg[black]%}:%{$fg[cyan]%}%~\
-$(custom_git_info)$(custom_hg_info)%{$fg[yellow]%}$(rvm_prompt_info)%{$fg_bold[blue]%}\
-$(virtualenv_prompt_info)%{$fg_bold[blue]%} ]
+$(custom_git_info)$(custom_hg_info)%{$fg[yellow]%}$(rvm_prompt_info)%{$fg_bold[blue]%} \
+$(virtualenv_prompt_info)%{$fg_bold[blue]%}]
 %{$fg[black]%}➜ %# %{$reset_color%}'
 
 # git theming
