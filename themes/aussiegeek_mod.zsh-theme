@@ -26,10 +26,10 @@ function custom_hg_info() {
 # ~/.oh-my-zsh/plugins/mercurial/mercurial.plugin.zsh
 # ~/.oh-my-zsh/plugins/git/git.plugin.zsh
 
-ZSH_THEME_GIT_PROMPT_PREFIX="$fg_bold[magenta] git:"
-ZSH_THEME_GIT_PROMPT_SUFFIX=""
-ZSH_THEME_HG_PROMPT_PREFIX="$fg_bold[magenta] hg:"
-ZSH_THEME_HG_PROMPT_SUFFIX=""
+ZSH_THEME_GIT_PROMPT_PREFIX="$fg_bold[magenta] (git:"
+ZSH_THEME_GIT_PROMPT_SUFFIX="$fg_bold[magenta])"
+ZSH_THEME_HG_PROMPT_PREFIX="$fg_bold[magenta] (hg:"
+ZSH_THEME_HG_PROMPT_SUFFIX="$fg_bold[magenta])"
 ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg_bold[green]%}"
 ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg_bold[red]%}"
 ZSH_THEME_HG_PROMPT_CLEAN="%{$fg_bold[green]%}"
