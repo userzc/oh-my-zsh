@@ -43,17 +43,10 @@ if _bundler-installed; then
 		fi
 		eval "alias bi='bundle install --jobs=$cores_num'"
 	else
-		alias bi='bundle install' 
+		alias bi='bundle install'
 	fi
 
-	## Main program
-	for cmd in $bundled_commands; do
-		eval "function unbundled_$cmd () { $cmd \$@ }"
-		eval "function bundled_$cmd () { _run-with-bundler $cmd \$@}"
-		alias $cmd=bundled_$cmd
-
-		if which _$cmd > /dev/null 2>&1; then
-			compdef _$cmd bundled_$cmd=$cmd
-		fi
-	done
-fi
+  if which _$cmd > /dev/null 2>&1; then
+    compdef _$cmd bundled_$cmd=$cmd
+  fi
+done
