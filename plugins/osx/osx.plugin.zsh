@@ -35,6 +35,7 @@ EOF
           set current_session to current session
           tell current_session
             write text "${command}"
+            keystroke return
           end tell
         end tell
       end tell
@@ -137,23 +138,6 @@ function man-preview() {
   man -t "$@" | open -f -a Preview
 }
 
-function trash() {
-  local trash_dir="${HOME}/.Trash"
-  local temp_ifs=$IFS
-  IFS=$'\n'
-  for item in "$@"; do
-    if [[ -e "$item" ]]; then
-      item_name="$(basename $item)"
-      if [[ -e "${trash_dir}/${item_name}" ]]; then
-        mv -f "$item" "${trash_dir}/${item_name} $(date "+%H-%M-%S")"
-      else
-        mv -f "$item" "${trash_dir}/"
-      fi
-    fi
-  done
-  IFS=$temp_ifs
-}
-
 function vncviewer() {
   open vnc://$@
 }
@@ -190,4 +174,3 @@ function itunes() {
 	esac
 	osascript -e "tell application \"iTunes\" to $opt"
 }
-
