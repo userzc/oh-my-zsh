@@ -1,4 +1,4 @@
-![Oh My Zsh](https://s3.amazonaws.com/ohmyzsh/oh-my-zsh-logo.png)
+![Personal Fork from the oh-my-zsh project.](https://s3.amazonaws.com/ohmyzsh/oh-my-zsh-logo.png)
 
 
 Oh My Zsh is an open source, community-driven framework for managing your [zsh](http://www.zsh.org/) configuration. That sounds boring. Let's try this again.
@@ -25,11 +25,13 @@ Oh My Zsh is installed by running one of the following commands in your terminal
 
 #### via curl
 
-`sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"`
+`sh -c "$(curl -fsSL https://raw.github.com/userzc/oh-my-zsh/master/tools/install.sh)"`
+<!-- `sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"` -->
 
 #### via wget
 
-`sh -c "$(wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"`
+`sh -c "$(wget https://raw.github.com/userzc/oh-my-zsh/master/tools/install.sh -O -)"`
+<!-- `sh -c "$(wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"` -->
 
 ## Using Oh My Zsh
 
@@ -92,15 +94,16 @@ The default location is `~/.oh-my-zsh` (hidden in your home directory)
 If you'd like to change the install directory with the `ZSH` environment variable, either by running `export ZSH=/your/path` before installing, or by setting it before the end of the install pipeline like this:
 
 ```shell
-curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | ZSH=~/.dotfiles/zsh sh
+curl -L https://raw.github.com/userzc/oh-my-zsh/master/tools/install.sh | ZSH=~/.dotfiles/zsh sh
 ```
+<!-- curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | ZSH=~/.dotfiles/zsh sh -->
 
 #### Manual Installation
 
 ##### 1. Clone the repository:
 
 ```shell
-git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
+git clone git://github.com/userzc/oh-my-zsh.git ~/.oh-my-zsh
 ```
 
 ##### 2. *Optionally*, backup your existing `~/.zshrc` file:

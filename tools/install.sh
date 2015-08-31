@@ -1,7 +1,7 @@
 set -e
 
 if [ ! -n "$ZSH" ]; then
-  ZSH=~/.oh-my-zsh
+  export ZSH ~/.oh-my-zsh
 fi
 
 if [ -d "$ZSH" ]; then
