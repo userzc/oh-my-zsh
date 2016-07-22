@@ -43,7 +43,8 @@ CURRENT_BG='NONE'
   # This is defined using a Unicode escape sequence so it is unambiguously readable, regardless of
   # what font the user is viewing this source code in. Do not replace the
   # escape sequence with a single literal character.
-  SEGMENT_SEPARATOR=$'\ue0b0' # 
+  # Do not change this! Do not make it '\u2b80'; that is the old, wrong code point.
+  SEGMENT_SEPARATOR=$'\ue0b0'
 }
 
 # Begin a segment
@@ -78,10 +79,8 @@ prompt_end() {
 
 # Context: user@hostname (who am I and where am I)
 prompt_context() {
-  local user=`whoami`
-
-  if [[ "$user" != "$DEFAULT_USER" || -n "$SSH_CLIENT" ]]; then
-    prompt_segment black default "%(!.%{%F{yellow}%}.)$user@%m"
+  if [[ "$USER" != "$DEFAULT_USER" || -n "$SSH_CLIENT" ]]; then
+    prompt_segment black default "%(!.%{%F{yellow}%}.)$USER@%m"
   fi
 }
 
@@ -105,6 +104,14 @@ prompt_git() {
       prompt_segment green black
     fi
 
+    if [[ -e "${repo_path}/BISECT_LOG" ]]; then
+      mode=" <B>"
+    elif [[ -e "${repo_path}/MERGE_HEAD" ]]; then
+      mode=" >M<"
+    elif [[ -e "${repo_path}/rebase" || -e "${repo_path}/rebase-apply" || -e "${repo_path}/rebase-merge" || -e "${repo_path}/../.dotest" ]]; then
+      mode=" >R>"
+    fi
+
     setopt promptsubst
     autoload -Uz vcs_info
 
@@ -112,15 +119,16 @@ prompt_git() {
     zstyle ':vcs_info:*' get-revision true
     zstyle ':vcs_info:*' check-for-changes true
     zstyle ':vcs_info:*' stagedstr '✚'
-    zstyle ':vcs_info:git:*' unstagedstr '●'
+    zstyle ':vcs_info:*' unstagedstr '●'
     zstyle ':vcs_info:*' formats ' %u%c'
-    zstyle ':vcs_info:*' actionformats '%u%c'
+    zstyle ':vcs_info:*' actionformats ' %u%c'
     vcs_info
     echo -n "${ref/refs\/heads\//$PL_BRANCH_CHAR }${vcs_info_msg_0_%% }${mode}"
   fi
 }
 
 prompt_hg() {
+  (( $+commands[hg] )) || return
   local rev status
   if $(hg id >/dev/null 2>&1); then
     if $(hg prompt >/dev/null 2>&1); then
@@ -141,7 +149,7 @@ prompt_hg() {
       st=""
       rev=$(hg id -n 2>/dev/null | sed 's/[^-0-9]//g')
       branch=$(hg id -b 2>/dev/null)
-      if `hg st | grep -Eq "^\?"`; then
+      if `hg st | grep -q "^\?"`; then
         prompt_segment red black
         st='±'
       elif `hg st | grep -q "^[MA]"`; then

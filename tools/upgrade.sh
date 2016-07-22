@@ -20,7 +20,7 @@ else
   NORMAL=""
 fi
 
-printf "${BLUE}%s${NORMAL}\n" "Upgrading Oh My Zsh"
+printf "${BLUE}%s${NORMAL}\n" "Updating Oh My Zsh"
 cd "$ZSH"
 
 # Upstream (oh-my-zsh project) should be merged, origin (my personal fork) should be rebase
