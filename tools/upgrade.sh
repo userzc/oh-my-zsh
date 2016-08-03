@@ -24,7 +24,7 @@ printf "${BLUE}%s${NORMAL}\n" "Updating Oh My Zsh"
 cd "$ZSH"
 
 # Upstream (oh-my-zsh project) should be merged, origin (my personal fork) should be rebase
-if {git pull --rebase --stat origin master && git pull --stat origin upstream}
+if ( git pull --rebase --stat origin master && git pull --stat upstream master )
 then
   printf '%s' "$GREEN"
   printf '%s\n' '         __                                     __   '
